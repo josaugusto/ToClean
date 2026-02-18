@@ -34,14 +34,14 @@ while menuChoice ~= 3 do
     console.writecolor("green", "3 - Exit\n")
     console.write("-> ") menuChoice = console.readln()
     
-    if tonumber(menuChoice) == 1 then
+    if menuChoice == '1' then
         emptyRecycleBin()
-    elseif tonumber(menuChoice) == 2 then
+    elseif menuChoice == '2' then
         deleteTemporaryFiles()
-    elseif tonumber(menuChoice) == 3 then 
+    elseif menuChoice == '3' then 
         sys.exit()
     else
-        console.writecolor("red", "Invalid choice!")
+        console.writecolor("red", "Invalid choice!\n")
     end
     sleep(3000)
 end
