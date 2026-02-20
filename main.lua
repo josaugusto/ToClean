@@ -7,24 +7,24 @@ console.title = "ToClean"
 local function emptyRecycleBin()
     console.writecolor("white", "Emptying Recycle Bin...")
     sysutils.recyclebin.empty("C:\\")
-    console.writecolor("green", "Done!\n")
+    console.writecolor("green", "\nDone!")
 end
 
 local function deleteTemporaryFiles()
     console.writecolor("white", "Cleaning temporary files...")
-    
+
     local systemTemp = sys.Directory("C:\\Windows\\Temp")
     local windowsUpdate = sys.Directory("C:\\Windows\\SoftwareDistribution\\Download")
-    local prefetch = sys.Directory("C:\\Windows\\prefetch")
     local userTemp = sys.Directory(sysutils.folders.LocalAppData .. "\\temp")
 
-    local tempDirectories = {systemTemp, windowsUpdate, prefetch, userTemp}
+    local tempDirectories = {systemTemp, windowsUpdate, userTemp}
 
     for directories in each(tempDirectories) do
 	    for item in each(directories) do
             item:remove()
         end
     end
+    console.writecolor("green", "\nDone!")
 end
 
 local menuChoice = 0
@@ -45,5 +45,5 @@ while menuChoice ~= 3 do
     else
         console.writecolor("red", "Invalid choice!\n")
     end
-    sleep(3000)
+    sleep(2000)
 end
