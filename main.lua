@@ -7,10 +7,12 @@ console.title = "ToClean"
 local function emptyRecycleBin()
     console.writecolor("white", "Emptying Recycle Bin...")
     sysutils.recyclebin.empty("C:\\")
+    console.writecolor("green", "Done!\n")
 end
 
 local function deleteTemporaryFiles()
     console.writecolor("white", "Cleaning temporary files...")
+    
     local systemTemp = sys.Directory("C:\\Windows\\Temp")
     local windowsUpdate = sys.Directory("C:\\Windows\\SoftwareDistribution\\Download")
     local prefetch = sys.Directory("C:\\Windows\\prefetch")
