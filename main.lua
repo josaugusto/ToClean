@@ -21,7 +21,11 @@ local function deleteTemporaryFiles()
 
     for directories in each(tempDirectories) do
 	    for item in each(directories) do
-            item:remove()
+            if type(item) == "File" then
+                item:remove()
+            else
+                item:removeall()
+            end
         end
     end
     console.writecolor("green", "\nDone!")
